@@ -59,12 +59,6 @@ python photolab.py sheet data/dark.jpg out/dark_g05.jpg out/dark_g2.jpg out/dark
 python measure.py
 ```
 
-## Сдача
-
-Загрузите решение в свой репозиторий GitHub и прикрепите ссылку в Moodle.
-Если решение лежит в `hw1/` внутри форка курса, CI-файл нужно разместить в корневой
-`.github/workflows/` с запуском команд из `hw1/`.
-Для отдельного репозитория с решением в корне подходит приложенный `.github/workflows/ci.yml`.
 Кэши и виртуальное окружение в сдачу не входят.
 
 Основа — [шаблон и учебные изображения курса](https://github.com/afanasyspb/iu-intro-cv).
