@@ -1,0 +1,418 @@
+[
+  {
+    "command": "python photolab.py gamma data/dark.jpg --gamma 0.5 -o out/dark_g05.jpg --hist out/dark_g05_hist.png",
+    "result": {
+      "command": "gamma",
+      "gamma": 0.5,
+      "before": {
+        "mean": 13.4,
+        "p1": 0,
+        "median": 13,
+        "p99": 25,
+        "clipped_black_pct": 2.3,
+        "clipped_white_pct": 0.0
+      },
+      "after": {
+        "mean": 56.1,
+        "p1": 0,
+        "median": 58,
+        "p99": 79,
+        "clipped_black_pct": 2.29,
+        "clipped_white_pct": 0.0
+      },
+      "out": "out/dark_g05.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py gamma data/dark.jpg --gamma 2 -o out/dark_g2.jpg --hist out/dark_g2_hist.png",
+    "result": {
+      "command": "gamma",
+      "gamma": 2.0,
+      "before": {
+        "mean": 13.4,
+        "p1": 0,
+        "median": 13,
+        "p99": 25,
+        "clipped_black_pct": 2.3,
+        "clipped_white_pct": 0.0
+      },
+      "after": {
+        "mean": 0.9,
+        "p1": 0,
+        "median": 1,
+        "p99": 3,
+        "clipped_black_pct": 28.48,
+        "clipped_white_pct": 0.0
+      },
+      "out": "out/dark_g2.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py wb data/bright.jpg --method grey-world -o out/bright_gw.jpg",
+    "result": {
+      "command": "wb",
+      "method": "grey-world",
+      "gains_bgr": [
+        1.501,
+        0.991,
+        0.755
+      ],
+      "means_before_bgr": [
+        78.3,
+        118.7,
+        155.9
+      ],
+      "means_after_bgr": [
+        117.7,
+        117.7,
+        117.7
+      ],
+      "out": "out/bright_gw.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py wb data/bright.jpg --method white-patch -o out/bright_wp.jpg",
+    "result": {
+      "command": "wb",
+      "method": "white-patch",
+      "gains_bgr": [
+        2.629,
+        1.409,
+        1.09
+      ],
+      "means_before_bgr": [
+        78.3,
+        118.7,
+        155.9
+      ],
+      "means_after_bgr": [
+        205.6,
+        167.2,
+        169.8
+      ],
+      "out": "out/bright_wp.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py clahe data/dark.jpg --clip 2 --tiles 8 -o out/dark_clahe.jpg --compare out/dark_compare.jpg --hist out/dark_clahe_hist.png",
+    "result": {
+      "command": "clahe",
+      "clip": 2.0,
+      "tiles": 8,
+      "local_contrast": {
+        "исходный": {
+          "shadow_std": 2.6,
+          "shadow_mean": 3.6,
+          "light_mean": 19.0,
+          "light_std": 2.9
+        },
+        "equalizeHist": {
+          "shadow_std": 17.4,
+          "shadow_mean": 27.8,
+          "light_mean": 231.6,
+          "light_std": 15.2
+        },
+        "CLAHE": {
+          "shadow_std": 4.9,
+          "shadow_mean": 10.5,
+          "light_mean": 30.5,
+          "light_std": 6.0
+        }
+      },
+      "out": "out/dark_clahe.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py chromakey data/object.jpg --bg data/bg.jpg --sample 800,600,200,200 --close 9 -o out/object_default.jpg --mask out/object_default_mask.png",
+    "result": {
+      "command": "chromakey",
+      "lo": [
+        11,
+        126,
+        40
+      ],
+      "hi": [
+        33,
+        249,
+        255
+      ],
+      "bbox": [
+        618,
+        297,
+        872,
+        936
+      ],
+      "area": 672398,
+      "centroid": [
+        1022.8848896040738,
+        743.5432452208365
+      ],
+      "raw_components": 216,
+      "components": 1,
+      "holes": 6,
+      "morph_components": 8,
+      "mask_pct": 22.41326666666667,
+      "out": "out/object_default.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py chromakey data/object.jpg --bg data/bg.jpg --sample 800,600,200,200 --close 31 -o out/object_on_bg.jpg --mask out/object_mask.png",
+    "result": {
+      "command": "chromakey",
+      "lo": [
+        11,
+        126,
+        40
+      ],
+      "hi": [
+        33,
+        249,
+        255
+      ],
+      "bbox": [
+        618,
+        297,
+        872,
+        936
+      ],
+      "area": 676489,
+      "centroid": [
+        1021.5917997188425,
+        741.8753076546699
+      ],
+      "raw_components": 216,
+      "components": 1,
+      "holes": 0,
+      "morph_components": 7,
+      "mask_pct": 22.549633333333333,
+      "out": "out/object_on_bg.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py rotate data/poster.jpg --deg 30 -o out/poster_rot30.jpg",
+    "result": {
+      "command": "rotate",
+      "deg": 30.0,
+      "size_in": [
+        1500,
+        2000
+      ],
+      "size_out": [
+        2300,
+        2483
+      ],
+      "canvas_empty_pct": 47.5,
+      "out": "out/poster_rot30.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py rotate data/poster.jpg --deg -137 -o out/poster_rot_minus137.jpg",
+    "result": {
+      "command": "rotate",
+      "deg": -137.0,
+      "size_in": [
+        1500,
+        2000
+      ],
+      "size_out": [
+        2462,
+        2486
+      ],
+      "canvas_empty_pct": 51.0,
+      "out": "out/poster_rot_minus137.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py resize data/text.jpg --scale 0.25 --method naive --report -o out/text_naive.jpg",
+    "result": {
+      "command": "resize",
+      "scale": 0.25,
+      "method": "naive",
+      "size_out": [
+        375,
+        500
+      ],
+      "out": "out/text_naive.jpg",
+      "psnr_vs_lanczos_db": {
+        "naive": 25.5,
+        "blur": 31.1,
+        "area": 33.3
+      }
+    }
+  },
+  {
+    "command": "python photolab.py resize data/text.jpg --scale 0.25 --method blur -o out/text_blur.jpg",
+    "result": {
+      "command": "resize",
+      "scale": 0.25,
+      "method": "blur",
+      "size_out": [
+        375,
+        500
+      ],
+      "out": "out/text_blur.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py resize data/text.jpg --scale 0.25 --method area -o out/text_small.jpg",
+    "result": {
+      "command": "resize",
+      "scale": 0.25,
+      "method": "area",
+      "size_out": [
+        375,
+        500
+      ],
+      "out": "out/text_small.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py resize data/text.jpg --scale 2 -o out/text_big.jpg",
+    "result": {
+      "command": "resize",
+      "scale": 2.0,
+      "method": "area",
+      "size_out": [
+        3000,
+        4000
+      ],
+      "out": "out/text_big.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py rectify data/poster.jpg --corners 180,579,1009,373,1396,1547,505,1855 --aspect 0.707 -o out/poster_front.jpg",
+    "result": {
+      "command": "rectify",
+      "corners_ordered": [
+        [
+          180.0,
+          579.0
+        ],
+        [
+          1009.0,
+          373.0
+        ],
+        [
+          1396.0,
+          1547.0
+        ],
+        [
+          505.0,
+          1855.0
+        ]
+      ],
+      "sides_px": {
+        "top": 854.2,
+        "right": 1236.1,
+        "bottom": 942.7,
+        "left": 1316.7
+      },
+      "size_out": [
+        943,
+        1334
+      ],
+      "aspect_out": 0.707,
+      "out": "out/poster_front.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py chromakey data/course/ball-lamp.jpg --bg data/course/road-cam.jpg --lo 140,121,40 --hi 168,230,255 -o out/course_ball.jpg --mask out/course_ball_mask.png",
+    "result": {
+      "command": "chromakey",
+      "lo": [
+        140,
+        121,
+        40
+      ],
+      "hi": [
+        168,
+        230,
+        255
+      ],
+      "bbox": [
+        133,
+        502,
+        115,
+        116
+      ],
+      "area": 9996,
+      "centroid": [
+        189.55742296918768,
+        558.3688475390156
+      ],
+      "raw_components": 1,
+      "components": 1,
+      "holes": 0,
+      "morph_components": 1,
+      "mask_pct": 1.626953125,
+      "out": "out/course_ball.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py resize data/course/iu-building.jpg --scale 0.25 --report -o out/course_small.jpg",
+    "result": {
+      "command": "resize",
+      "scale": 0.25,
+      "method": "area",
+      "size_out": [
+        480,
+        320
+      ],
+      "out": "out/course_small.jpg",
+      "psnr_vs_lanczos_db": {
+        "naive": 27.9,
+        "blur": 36.0,
+        "area": 37.2
+      }
+    }
+  },
+  {
+    "command": "python photolab.py rectify data/course/poster-angle.jpg --corners 1290,1010,560,330,600,840,1250,220 --size 640x905 -o out/course_poster.jpg",
+    "result": {
+      "command": "rectify",
+      "corners_ordered": [
+        [
+          560.0,
+          330.0
+        ],
+        [
+          1250.0,
+          220.0
+        ],
+        [
+          1290.0,
+          1010.0
+        ],
+        [
+          600.0,
+          840.0
+        ]
+      ],
+      "sides_px": {
+        "top": 698.7,
+        "right": 791.0,
+        "bottom": 710.6,
+        "left": 511.6
+      },
+      "size_out": [
+        640,
+        905
+      ],
+      "aspect_out": 0.707,
+      "out": "out/course_poster.jpg"
+    }
+  },
+  {
+    "command": "python photolab.py sheet data/dark.jpg out/dark_g05.jpg out/dark_g2.jpg out/dark_clahe.jpg data/bright.jpg out/bright_gw.jpg out/bright_wp.jpg data/object.jpg out/object_default.jpg out/object_on_bg.jpg out/object_mask.png data/poster.jpg out/poster_rot30.jpg out/poster_rot_minus137.jpg out/poster_front.jpg data/text.jpg out/text_naive.jpg out/text_blur.jpg out/text_small.jpg out/text_big.jpg --cols 4 -o out/sheet.jpg",
+    "result": {
+      "command": "sheet",
+      "n": 20,
+      "cols": 4,
+      "size_out": [
+        1320,
+        1378
+      ],
+      "out": "out/sheet.jpg"
+    }
+  }
+]
