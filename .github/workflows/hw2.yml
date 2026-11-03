@@ -1,0 +1,35 @@
+name: HW2 tests
+
+# Те же 17 тестов, что и локально: pytest tests -q. Красный CI — функция не написана
+# или сломана; зелёный — половина работы сделана, остальное — набор кадров, числа, отчёт.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: hw2
+    env:
+      MPLBACKEND: Agg
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: hw2/requirements.txt
+      - name: Установка зависимостей
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Версия OpenCV
+        run: python -c "import cv2; assert cv2.__version__ == '4.14.0', cv2.__version__; print(cv2.__version__)"
+      - name: Тесты
+        run: pytest tests -q
