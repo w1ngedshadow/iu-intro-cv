@@ -167,5 +167,5 @@ python docscan.py video --source data/input.mp4 --method auto --no-window --seco
 
 ## 6. Инструменты
 
-[Шаблон курса](https://github.com/afanasyspb/iu-intro-cv/tree/main/homeworks/hw2-docscan/template), NumPy, OpenCV. Codex помог с TODO, дополнительными изображениями и отчётом; проверено 17 тестами и сравнением с примерами курса.
+[Шаблон курса](https://github.com/afanasyspb/iu-intro-cv/tree/main/homeworks/hw2-docscan/template), NumPy, OpenCV. Codex помог с TODO и отчётом; проверено 17 тестами и сравнением с примерами курса.
 
